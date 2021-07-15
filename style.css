@@ -1,3 +1,11 @@
-p{
-    color: rgb(255, 0, 0);
+html{
+    font-size: 10px;
+    font-family: "Open Sans",sans-serif;
+    background-image: url(szu.jpeg);
+    background-size: cover;
+}
+p,li{
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 2px;
 }
