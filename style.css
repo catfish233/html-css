@@ -3,5 +3,23 @@ p{
 }
 html{
     background-color: rgb(5, 5, 5);
-
+    /* 背景颜色设置 */
+}
+h1{
+    margin: 0;
+    padding: 10px 0;
+    color: chartreuse;
+    /* 标题颜色设置 */
+    text-shadow: 3px 3px 1px white;
+}
+body{
+    width: 500px;
+    margin: 0 auto;
+    background-color: cornsilk;
+    padding:  0 20px 300px 20px;
+    border: 5px solid rgb(143, 44, 44)
+}
+img{
+    display: block;
+    margin: 0 auto;
 }
