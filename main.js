@@ -1,2 +1,4 @@
-let myHeading = document.querySelector("h1");
-myHeading.textContent = "Hello World!"
+function greetMe(user){
+    alert('hellp' + user);
+  }
+  greetMe('Alice');//'Hi Alice
