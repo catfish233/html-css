@@ -16,6 +16,7 @@ export default class Input extends Component{
     const todoObj = {id:nanoid(), name:this.state.name, done: false, date: new Date().toLocaleString()};//预处理，将输入封装为一个对象
     this.props.addtodo(todoObj);//将输入传给App
     target.value = "";
+    console.log(todoObj)
   }
 
   render(){

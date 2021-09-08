@@ -1,30 +1,31 @@
-import React, { useState} from "react";
-import store from "../store";
+import React, {Component} from "react";
 import Item from "./Item";
-
-export default function Todolist(){
-
-  const [status, setStatus] = useState({flag:'All'});
+import '../css_style/Todolist.css'
+export default class Todolist extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+        flag: 'All'
+    };
+  }
 
   //分类显示按钮的回调函数
-  function handleClick(flag){
+  handleClick(flag){
     return()=>{
-      setStatus({flag: flag})
+      this.setState({flag: flag})
     }
   }
 
-  const input = store.getState();
-  const todos = input.todoObj;
-  console.log(todos);
-  const {flag} = status;
-  const todolist = input.todoObj;
-  // const todolist = todos.filter((todoObj)=>{return todoObj.done !== true });
-
-  return(
-    <div className="Todolist_div">
-      {
+  render(){
+    const {todos, updateTodo, editTodo, delTodo} = this.props;
+    const {flag} = this.state;
+    const todolist = todos.filter((todoObj)=>{return todoObj.done !== true });
+    return (
+      <div className="Todolist_div">
+        {
           todos.map((todo) => {
-            return <Item key={todo.id} {...todo} 
+            return <Item key={todo.id} {...todo} updateTodo={updateTodo} 
+            editTodo={editTodo} delTodo={delTodo} 
             flag={flag}/>//遍历数组，显示Item组件的内容
           })
         }
@@ -33,9 +34,10 @@ export default function Todolist(){
             <p id="length">{todolist.length} items left</p>
             : <p id="length">{todolist.length} item left</p>
         }
-        <button className='sort' id='All' onClick = {handleClick('All')} >All</button>
-        <button className='sort' id='Active' onClick = {handleClick('Active')} >Active</button>
-        <button className='sort' id='Completed' onClick = {handleClick('Completed')} >Completed</button>
-    </div>
-  )
+        <button className='sort' id='All' onClick = {this.handleClick('All')} >All</button>
+        <button className='sort' id='Active' onClick = {this.handleClick('Active')} >Active</button>
+        <button className='sort' id='Completed' onClick = {this.handleClick('Completed')} >Completed</button>
+      </div>
+    );
+  }
 }

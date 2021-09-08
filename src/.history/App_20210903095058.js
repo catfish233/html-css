@@ -88,9 +88,14 @@ export default class App extends Component {
   }
 
   //生命周期函数（组件状态更新）将更新的数据保存在本地
-  componentDidUpdate(){
-   this.saveLocalData(this.state);//本地保存数据
+  // componentDidUpdate(){
+  //  this.saveLocalData(this.state);//本地保存数据
+  // }
+
+  useEffect(){
+    this.saveLocalData(this.state);//本地保存数据
   }
+
 
   render() {
     const {todos} = this.state;

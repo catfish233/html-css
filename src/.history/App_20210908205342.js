@@ -24,6 +24,7 @@ export default class App extends Component {
     this.setState({
       todos: newtodos
     })  //更新state  
+    console.log(todos)
     // this.saveLocalData(this.state);
   }
 
@@ -97,13 +98,13 @@ export default class App extends Component {
     return (
       <div className="App">
           <Input addtodo = {this.addtodo} />
-          <Todolist 
+          {/* <Todolist 
             todos={todos} 
             updateTodo={this.updateTodo} 
             editTodo={this.editTodo} 
             delTodo={this.delTodo}/>
           <Clear clearTodo={this.clearTodo} todos={todos}/>
-          <Sitefoot />
+          <Sitefoot /> */}
       </div>
     );
   }

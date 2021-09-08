@@ -97,13 +97,13 @@ export default class App extends Component {
     return (
       <div className="App">
           <Input addtodo = {this.addtodo} />
-          <Todolist 
+          {/* <Todolist 
             todos={todos} 
             updateTodo={this.updateTodo} 
             editTodo={this.editTodo} 
             delTodo={this.delTodo}/>
           <Clear clearTodo={this.clearTodo} todos={todos}/>
-          <Sitefoot />
+          <Sitefoot /> */}
       </div>
     );
   }
