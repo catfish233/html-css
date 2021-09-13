@@ -20,7 +20,7 @@ export default class Todolist extends Component{
   }
 
   render(){
-    const {todos} = this.state;
+    const todos = store.getState().todoReducer;
     return(
         <div className="Todolist_div">
           {

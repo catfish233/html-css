@@ -7,9 +7,10 @@ export default class Todolist extends Component{
     super(props);
     this.state = { flag:"All", todos: store.getState().todoReducer };
     store.subscribe(()=>{
-      this.setState({
-        todos: store.getState().todoReducer
-      })
+      // this.setState({
+      //   todos: store.getState().todoReducer
+      // })
+      this.state.todos =  store.getState().todoReducer
     })
   }
   

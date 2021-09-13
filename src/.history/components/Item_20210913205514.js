@@ -25,8 +25,11 @@ class Item extends Component {
 		// store.dispatch(action);//传给store一个id，
 	}
 
+	
+	
 	render(){
 		const {isEditing, name, date, id, done} = this.state;
+	
 		const time = date.toLocaleString();
 		return (
 			<li>   

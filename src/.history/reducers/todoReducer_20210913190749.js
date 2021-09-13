@@ -18,11 +18,11 @@ const todoReducer=(state = initialState, action) => {
         };
       })
 
-    case "del_Todo":
-      // 过滤掉与action同id的todo项，返回一个新数组
-      return state.todos.filter((todo) => {
-        return todo.id !== action.id;
-      })
+    // case "del_Todo":
+    //   // 过滤掉与action同id的todo项，返回一个新数组
+    //   return state.todos.filter((todo) => {
+    //     return todo.id !== action.id;
+    //   })
 
     default:
       return state;

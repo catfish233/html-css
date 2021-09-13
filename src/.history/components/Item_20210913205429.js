@@ -16,17 +16,19 @@ class Item extends Component {
 
 	handleCheck = (id) =>{
 		const action = togglerTodos(id);
-		console.log(action);
 		// store.dispatch(action);//传给store一个id，
 	}
 
 	handleDel = (id) =>{
 		const action = delTodo(id);
-		// store.dispatch(action);//传给store一个id，
+		store.dispatch(action);//传给store一个id，
 	}
 
+	
+	
 	render(){
 		const {isEditing, name, date, id, done} = this.state;
+	
 		const time = date.toLocaleString();
 		return (
 			<li>   

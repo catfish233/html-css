@@ -1,3 +1,5 @@
+const { render } = require("@testing-library/react");
+
 const initialState = [];
 
 // 输入todo项
@@ -6,7 +8,7 @@ const todoReducer=(state = initialState, action) => {
 
     // 将输入的内容放入state
     case "send_TodoObj":
-      return [action.todoObj, ...state];
+      return [action.todoObj, ...state]
 
     case "toggler_Todos":
       // 改变todo项状态
@@ -15,14 +17,14 @@ const todoReducer=(state = initialState, action) => {
           return {...todo, done:!todo.done};// 状态取反
         }else {
           return todo;
-        };
+        }
       })
 
-    case "del_Todo":
-      // 过滤掉与action同id的todo项，返回一个新数组
-      return state.todos.filter((todo) => {
-        return todo.id !== action.id;
-      })
+    // case "del_Todo":
+    //   // 过滤掉与action同id的todo项，返回一个新数组
+    //   return state.todos.filter((todo) => {
+    //     return todo.id !== action.id;
+    //   })
 
     default:
       return state;
@@ -34,15 +36,14 @@ const todoReducer=(state = initialState, action) => {
 const todosFilter= (state = initialState, action) => {
   switch (action.type) {
     case "":
-      return ;
-    default:
-      return state;
+      return
+    default
+    
   }
 }
 
 module.exports ={
   todoReducer,
-  todosFilter
 };
 
 

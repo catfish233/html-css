@@ -5,12 +5,10 @@ import Item from "./Item";
 export default class Todolist extends Component{
   constructor(props){
     super(props);
-    this.state = { flag:"All", todos: store.getState().todoReducer };
-    store.subscribe(()=>{
-      this.setState({
-        todos: store.getState().todoReducer
-      })
-    })
+    this.state = {
+      todos:store.getState().todoReducer,
+      flag:"All",
+    }
   }
   
   handleClick(flag){
@@ -19,8 +17,13 @@ export default class Todolist extends Component{
     }
   }
 
+  componentDidUpdate = ()=>{
+    // this.setState({todos:store.getState().todoReducer});// 更新组件状态
+  }
+
   render(){
-    const {todos} = this.state;
+    const todos = store.getState().todoReducer;
+    console.log(todos)
     return(
         <div className="Todolist_div">
           {
@@ -41,4 +44,5 @@ export default class Todolist extends Component{
         </div>
       )
   }
+  
 }

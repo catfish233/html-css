@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { delTodo, togglerTodos } from '../actions/action';
+import { delTodo, } from '../actions/action';
 import store from '../store';
 
 class Item extends Component {
@@ -14,19 +14,18 @@ class Item extends Component {
 		}
 	}
 
-	handleCheck = (id) =>{
-		const action = togglerTodos(id);
-		console.log(action);
-		// store.dispatch(action);//传给store一个id，
-	}
-
 	handleDel = (id) =>{
 		const action = delTodo(id);
 		// store.dispatch(action);//传给store一个id，
 	}
 
+	handleCheck = (id) =>{
+		const action = 
+	}
+	
 	render(){
 		const {isEditing, name, date, id, done} = this.state;
+	
 		const time = date.toLocaleString();
 		return (
 			<li>   
