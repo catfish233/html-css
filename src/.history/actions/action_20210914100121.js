@@ -6,10 +6,10 @@ const sendInput = (todoObj) => {
 };
 
 // 改变todo项状态
-const togglerTodos = (id) => {
+const togglerTodos = (todos) => {
   return{
     type:"toggler_Todos",
-    id:id,
+    todos:todos,
   }
 }
 
@@ -21,18 +21,9 @@ const delTodo = (id) => {
   }
 }
 
-// 编辑todo项
-const editTodo = (newtodo) => {
-  return{
-    type:"edit_Todo",
-    newtodo:newtodo,
-  }
-}
-
 // 导出action
 module.exports = {
   sendInput,
   togglerTodos,
   delTodo,
-  editTodo,
 };

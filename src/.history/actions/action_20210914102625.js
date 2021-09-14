@@ -21,18 +21,9 @@ const delTodo = (id) => {
   }
 }
 
-// 编辑todo项
-const editTodo = (newtodo) => {
-  return{
-    type:"edit_Todo",
-    newtodo:newtodo,
-  }
-}
-
 // 导出action
 module.exports = {
   sendInput,
   togglerTodos,
   delTodo,
-  editTodo,
 };

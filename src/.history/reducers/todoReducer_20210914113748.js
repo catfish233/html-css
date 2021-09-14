@@ -20,17 +20,9 @@ const todoReducer=(state = initialState, action) => {
 
     case "del_Todo":
       // 过滤掉与action同id的todo项，返回一个新数组
+      console.log(state)
       return state.filter((todo) => {
         return todo.id !== action.id;
-      })
-
-    case "edit_Todo":
-      return state.map((todo) => {
-        if(todo.id === action.newtodo.id){
-          return action.newtodo;
-        }else {
-          return todo;
-        }
       })
 
     default:
@@ -40,7 +32,7 @@ const todoReducer=(state = initialState, action) => {
 
 
 // 分类
-const todosFilter= (state, action) => {
+const todosFilter= (state = initialState, action) => {
   switch (action.type) {
     case "":
       return ;

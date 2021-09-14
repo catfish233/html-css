@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { delTodo, togglerTodos, editTodo } from '../actions/action';
+import { delTodo, togglerTodos } from '../actions/action';
 import store from '../store';
 
 class Item extends Component {

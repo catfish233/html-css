@@ -24,14 +24,7 @@ const todoReducer=(state = initialState, action) => {
         return todo.id !== action.id;
       })
 
-    case "edit_Todo":
-      return state.map((todo) => {
-        if(todo.id === action.newtodo.id){
-          return action.newtodo;
-        }else {
-          return todo;
-        }
-      })
+    case ""
 
     default:
       return state;

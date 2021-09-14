@@ -24,15 +24,6 @@ const todoReducer=(state = initialState, action) => {
         return todo.id !== action.id;
       })
 
-    case "edit_Todo":
-      return state.map((todo) => {
-        if(todo.id === action.newtodo.id){
-          return action.newtodo;
-        }else {
-          return todo;
-        }
-      })
-
     default:
       return state;
     }
@@ -40,7 +31,7 @@ const todoReducer=(state = initialState, action) => {
 
 
 // 分类
-const todosFilter= (state, action) => {
+const todosFilter= (state = initialState, action) => {
   switch (action.type) {
     case "":
       return ;

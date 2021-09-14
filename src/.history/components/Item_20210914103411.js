@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { delTodo, togglerTodos, editTodo } from '../actions/action';
+import { delTodo, togglerTodos } from '../actions/action';
 import store from '../store';
 
 class Item extends Component {
@@ -14,30 +14,16 @@ class Item extends Component {
 		}
 	}
 
-	// 改变状态
 	handleCheck = (id) =>{
 		const action = togglerTodos(id);
-		store.dispatch(action);//传给store更改状态的todo项的id
+		// console.log(action);
+		// store.dispatch(action);//传给store一个id，
 	}
 
-	// 删除todo项
 	handleDel = (id) =>{
 		const action = delTodo(id);// type + id
-		store.dispatch(action);//传给store删除的todo项的id
-	}
-
-	// 编辑todo项
-	handleEdit = (id, done) =>{
-		return (event) =>{
-			const {keyCode, target} = event;
-			const date = new Date().toLocaleString();
-			if(keyCode !== 13) return;
-			if(target.value === '') return alert('The input cannot be empty!');
-
-			const newtodo = {id: id, name: target.value, done: done, date: date};
-			const action = editTodo(newtodo);
-			store.dispatch(action);
-		}
+		console.log(action);
+		store.dispatch(action);//传给store一个id，
 	}
 
 	render(){
@@ -45,13 +31,12 @@ class Item extends Component {
 		const time = date.toLocaleString();
 		return (
 			<li>   
-				<input type="checkbox" onChange={()=>{this.handleCheck(id)}} defaultChecked = {done} />
+				<input type="checkbox" onChange={this.handleCheck(id)} defaultChecked = {done} />
 				<p id='Time'>{time}</p>{/* 设置为<p style={{opacity:done?'0.5':'1'}}>{time}</p>之后，复选框就不能点击 */}
 				{
 					isEditing ?
 						<input className='input'
 							autoFocus value={name}
-							onKeyUp={()=>{this.handleEdit(id, done)}}
 							onChange={(e) => {
 								this.setState({name: e.target.value,})
 							}}
@@ -64,7 +49,7 @@ class Item extends Component {
 							{name}
 						</p>
 				}
-				<button className="del" onClick={()=>{this.handleDel(id)}} style={{opacity:'1'}}>X</button>
+				<button className="del" onClick={this.handleDel(id)} style={{opacity:'1'}}>X</button>
 			</li>
   	)
 	}
