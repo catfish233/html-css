@@ -35,11 +35,13 @@ window.onbeforeunload = (e) => {
   saveState(state);
 };
 
+const preloadedState = loadState();
+
 const store = configureStore({
   reducer: {
     todolist: todolistReducer,
   },
-  middleware: [loadState()]
+  preloadedState,
 });// 生成store状态树
 
 export default store;
